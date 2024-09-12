@@ -1,0 +1,21 @@
+################## IONIC - CAPACITOR ##########################
+
+
+ionic start name-of-project >> crear proyecto
+
+ionic serve --watch >> para activar proyecto y verlo 
+
+npx capacitor-assets generate >> crear iconos
+
+tsconfig.json > strict > poner en false para cambiarlo es mejor
+
+Cambiar nombre: 
+capacitor.config.ts >> appName cambiamos lo que esté allí 
+(hay más propiedades que cambiar además allí)
+
+angular.json > styles >> se puede inportar bootstrap
+
+si no funciona algo de estilo se puede poner -- y funciona en el css
+
+ionic capacitor bild android >> poner en marcha en android (app)
+
