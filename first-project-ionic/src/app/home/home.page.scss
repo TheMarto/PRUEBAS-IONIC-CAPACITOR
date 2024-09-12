@@ -1,0 +1,12 @@
+.number {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (orientation: portrait){
+  .number {font-size: 18em;}
+}
+@media (orientation: landscape) {
+  .number {font-size: 7em;}
+}
