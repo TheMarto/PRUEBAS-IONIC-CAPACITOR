@@ -6,10 +6,11 @@ ionic start name-of-project >> crear proyecto
 ionic serve --watch >> para activar proyecto y verlo 
 
 npx capacitor-assets generate >> crear iconos
+o npm install @capacitor/assets --save-dev para icons
 
-tsconfig.json > strict > poner en false para cambiarlo es mejor
+#tsconfig.json > strict > poner en false para cambiarlo es mejor
 
-Cambiar nombre: 
+#Cambiar nombre: 
 capacitor.config.ts >> appName cambiamos lo que esté allí 
 (hay más propiedades que cambiar además allí)
 
@@ -17,5 +18,13 @@ angular.json > styles >> se puede inportar bootstrap
 
 si no funciona algo de estilo se puede poner -- y funciona en el css
 
-ionic capacitor bild android >> poner en marcha en android (app)
+ionic capacitor build android >> poner en marcha en android (app)
+
+ionic capacitor build ios >> poner en marcha en ios (app)
+Si da error se puede usar: 
+sudo chmod -R 755/usr/local/bin
+sudo gem install cocoapos
+
+
+
 

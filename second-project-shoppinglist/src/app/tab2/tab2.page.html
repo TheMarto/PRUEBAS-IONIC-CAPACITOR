@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      My Market List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+<ion-item>
+  <ion-input type="text" label="Item: " placeholder="Add" [(ngModel)]="item" name="item"></ion-input>
+  <ion-button [disabled]="!item" (click)="addItem()">
+    <ion-icon name="bag-add-outline"></ion-icon>
+  </ion-button>
+</ion-item>
+
+
+</ion-content>
