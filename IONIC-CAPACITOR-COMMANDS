@@ -6,7 +6,7 @@ ionic start name-of-project >> crear proyecto
 ionic serve --watch >> para activar proyecto y verlo 
 
 npx capacitor-assets generate >> crear iconos
-o npm install @capacitor/assets --save-dev para icons
+o npm install @capacitor/assets --save-dev para icons (instaltar siempre)
 
 #tsconfig.json > strict > poner en false para cambiarlo es mejor
 
