@@ -14,8 +14,6 @@ o npm install @capacitor/assets --save-dev para icons
 capacitor.config.ts >> appName cambiamos lo que esté allí 
 (hay más propiedades que cambiar además allí)
 
-angular.json > styles >> se puede inportar bootstrap
-
 si no funciona algo de estilo se puede poner -- y funciona en el css
 
 ionic capacitor build android >> poner en marcha en android (app)
@@ -34,6 +32,7 @@ ademas puedes agregar en angular.json > styles y > scripts:
 
 se puede usar MenuController para que la barra de menu se cierre o haga cosas
 
-
+para el flash usamos (hay mas que flash en ese plug):
+npm install @capgo/capacitor-flash
 
 

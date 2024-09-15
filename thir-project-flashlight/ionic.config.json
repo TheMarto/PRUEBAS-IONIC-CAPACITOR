@@ -1,0 +1,7 @@
+{
+  "name": "thir-project-flashlight",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

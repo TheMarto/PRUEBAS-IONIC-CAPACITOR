@@ -1,0 +1,7 @@
+{
+  "name": "fourth-project-pockedex",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
