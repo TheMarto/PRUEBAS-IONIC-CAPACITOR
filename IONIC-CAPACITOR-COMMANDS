@@ -25,6 +25,13 @@ Si da error se puede usar:
 sudo chmod -R 755/usr/local/bin
 sudo gem install cocoapos
 
+#Bootstrap en ionico:
+npm install bootstrap
+luego en src/global.scss agregar: 
+@import "~bootstrap/dist/css/bootstrap.min.css";
+ademas puedes agregar en angular.json > styles y > scripts:
+"node_modules/bootstrap/dist/css/bootstrap.min.css" y "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" respectivamente
+
 
 
 
