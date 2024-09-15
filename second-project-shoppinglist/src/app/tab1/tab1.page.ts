@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ShoppingServicesService} from '../services/shopping-services.service'
 import { AlertController } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -9,9 +10,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class Tab1Page {
 
-  constructor(public ShoppingServicesService:ShoppingServicesService,
-               private alertcontroller: AlertController
-  ) {}
+  constructor(public ShoppingServicesService:ShoppingServicesService, private alertcontroller: AlertController, private menuController: MenuController) {}
 
   onRenderItem($event){
     //console.log($event)
@@ -25,11 +24,11 @@ export class Tab1Page {
   }
 
 
-  
+  // remove per element
  async removeItem(item: string){
     const alert = await this.alertcontroller.create({
       header:'Confirmation',
-      message: 'The item will delete, you are sure?',
+      message: 'The item will remove, you are sure?',
       buttons: [
         {
         text: 'yes',
@@ -45,6 +44,30 @@ export class Tab1Page {
         
       }]
 
+    });
+    await alert.present();
+  }
+
+  //remove all elements
+  async removeAllItems(){
+    const alert = await this.alertcontroller.create({
+      header: 'Confirmation',
+      message: 'All items will be remove, are you sure?',
+      buttons:[
+        {
+          text:'yes',
+          handler:()=>{
+            this.ShoppingServicesService.remuveAll();
+            this.menuController.close();
+          }
+        },
+        {
+          text:'no',
+          handler:()=>{
+            alert.dismiss();
+          }
+        }
+      ]
     });
     await alert.present();
   }

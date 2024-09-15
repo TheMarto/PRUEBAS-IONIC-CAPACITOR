@@ -32,6 +32,8 @@ luego en src/global.scss agregar:
 ademas puedes agregar en angular.json > styles y > scripts:
 "node_modules/bootstrap/dist/css/bootstrap.min.css" y "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" respectivamente
 
-se puede usar 
+se puede usar MenuController para que la barra de menu se cierre o haga cosas
+
+
 
 

@@ -2,19 +2,41 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet">
 
+<ion-menu side="end" content-id="content-menu">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title class="my-3">
+        Menu
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item (click)="removeAllItems()" [disabled]="ShoppingServicesService.isEmpty">
+        <ion-icon name="trash-outline" slot="end"></ion-icon>
+        <ion-label>Delete All Items</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
+    <ion-title class="mx-1 saturn-title">
       <div class=" d-flex align-items-strech justify-content-between" style="margin-top: 10px;">
         <h1 class="text-info saturn">Saturn<a href="#"><ion-icon name="planet-outline"></ion-icon></a></h1>
         <p class="mt-2">Todo List</p>
       </div>
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" id="content-menu">
 
   <ion-item *ngIf="ShoppingServicesService.isEmpty" lines="none" class="text-center">
     <ion-label class="">No items for show</ion-label>
