@@ -1,0 +1,48 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet">
+<style>
+  .header{
+    background: url('assets/img/pokedex-header.png') no-repeat;
+    background-size: cover;
+  }
+</style>
+<ion-header [translucent]="true">
+  <ion-toolbar class="m-0 header" style="height: 70px;">
+    <ion-title class="p-2 me-2 ms-2">
+      <div class="d-flex justify-content-between align-items-center p-0 mt-3">
+        <h1 class="text-info saturn" style="font-size: 40px;">Saturn<a href="#"><ion-icon name="planet-outline"></ion-icon></a></h1>
+        <a href="https://pokeapi.co/" class="text-white me-2" style="text-decoration: none;">PokeAPI <img src="../../../assets/pokeball.svg" style="height: 30px; width: 30px;" alt=""></a>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+<!--recorremos array para ver todos los pokemos-->
+    <ion-row *ngFor="let pokemon of pokemons" class="d-flex align-items-center border-bottom">
+  <!--buscamos la imagen de cada uno de ellos-->
+      <ion-col size="3">
+          <ion-img [src]="pokemon.sprite" style="height: 90px; width: 90px; overflow: hidden;"></ion-img>
+      </ion-col>
+  <!--buscamos el nombre de cada uno de ellos-->
+      <ion-col size="4">
+        <ion-text class="ion-text-capitalize">{{pokemon.name}}</ion-text>
+      </ion-col>
+  <!--buscamos la img que se adapta a cada uno de ellos con su power-->
+      <ion-col size="2">
+        <ion-img [src]="'/assets/img/'+pokemon.type1+'.gif'" style="width:60px; height:60px; overflow: hidden;"></ion-img>
+      </ion-col>
+  <!--buscamos la segunda img del power si es que existe-->
+      <ion-col size="2">
+        <ion-img *ngIf="pokemon.type2" [src]="'/assets/img/'+pokemon.type1+'.gif'" style="width:60px; height:60px; overflow: hidden;"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-infinite-scroll (ionInfinite)="morePokemon($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="pleace wait...">
+        
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-grid>
+</ion-content>

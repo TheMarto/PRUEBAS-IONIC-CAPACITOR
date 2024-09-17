@@ -36,3 +36,15 @@ para el flash usamos (hay mas que flash en ese plug):
 npm install @capgo/capacitor-flash
 
 
+API RestFull:
+agregamos en capacitor.config.ts:
+server: {
+    androidScheme: 'https'
+  },
+  plugins: {
+  CapacitorHttp: {
+    enabled: true,
+  }
+}
+luego en el servicio lo importamos:
+import { CapacitorHttp } from '@capacitor/core';
