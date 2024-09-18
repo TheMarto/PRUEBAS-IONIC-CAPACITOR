@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingController, NavController, NavParams } from '@ionic/angular';
 import { pokemon } from 'src/app/models/pokemon';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
@@ -11,8 +12,13 @@ export class ListPokemonsPage implements OnInit {
 
   public pokemons: pokemon[];
 
+
+  //constructor
   constructor(
     private pokemonServices: PokemonService,
+    private LoadingController: LoadingController,
+    private NavParams: NavParams,
+    private NavController: NavController,
   ) {
     this.pokemons = [];
    }
@@ -21,26 +27,45 @@ export class ListPokemonsPage implements OnInit {
 
     this.morePokemon(); 
   }
+//methods
 
-
-  morePokemon($event = null){
+  async morePokemon($event = null){
     const promise = this.pokemonServices.getPokemons();
-
-    if(promise){
-      promise.then((result: pokemon[]) =>
+// del servicio y el metodo getPokemon donde tenemos la constante
+    if(promise){  // si existe
+      let loading = null;
+      if(!$event){ // si no existe evento ponemos mensaje de cargando hasta obtenerlo
+        loading = await this.LoadingController.create({
+          message: 'Loading...'
+        })
+        await loading.present();
+      }
+      promise.then((result: pokemon[]) => //cargamos el array
       {
-        console.log(result);
+        //console.log(result);
         this.pokemons = this.pokemons.concat(result);
-        console.log(this.pokemons);
+        //console.log(this.pokemons);
 
-        if($event){
+        if($event){ //evento de carga
           $event.target.complete();
+        }
+        if(loading){
+          loading.dismiss();
         }
 
       }).catch((err)=>{
         $event.target.complete();
       })
     }
+  }
+
+
+
+  //method para obtener el boton al pokemon 
+  goToDetails(pokemon){
+    this.NavParams.data["pokemon"] = pokemon;//le paso a la otra pagina la data que se llama pokemon que será igual a pokemon que traigo del service
+
+    this.NavController.navigateForward("detail-pokemon")//ir aquí y llevar la info
   }
 
 }

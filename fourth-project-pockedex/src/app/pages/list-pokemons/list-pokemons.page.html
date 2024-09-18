@@ -21,7 +21,7 @@
 <ion-content [fullscreen]="true">
   <ion-grid>
 <!--recorremos array para ver todos los pokemos-->
-    <ion-row *ngFor="let pokemon of pokemons" class="d-flex align-items-center border-bottom">
+    <ion-row *ngFor="let pokemon of pokemons" (click)="goToDetails(pokemon)" class="d-flex align-items-center border-bottom">
   <!--buscamos la imagen de cada uno de ellos-->
       <ion-col size="3">
           <ion-img [src]="pokemon.sprite" style="height: 90px; width: 90px; overflow: hidden;"></ion-img>

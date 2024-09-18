@@ -48,3 +48,22 @@ server: {
 }
 luego en el servicio lo importamos:
 import { CapacitorHttp } from '@capacitor/core';
+
+navegación pasando información:
+NavParams en provides (fuera del {})
+this.NavParams.data["pokemon"] = pokemon; paso de una pagina a otra la data que se llama pokemon e igual eso a pokemon (que es mi array)
+this.NavController.navigateForward("detail-pokemon") voy a la pagina y paso la info
+
+navegar hacia atrás:
+this.NavController.pop() >> va para atrás ya que en moviles guarda desde donde venimos
+
+para hacer pipes es ionic g pipe nombre-de-pipe y agregar GetStartPipe en declaretion de module donde se usará con su import
+
+
+plugin de cordoba para que no cambie la orientación:
+npm install cordova-plugin-screen-orientation
+npm install @awesome-cordova-plugins/screen-orientation
+ionic cap sync
+en providers de app modules.ts:
+ScreenOrientation
+

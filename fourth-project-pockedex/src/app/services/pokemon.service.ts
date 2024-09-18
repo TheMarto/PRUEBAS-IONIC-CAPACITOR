@@ -32,7 +32,7 @@ export class PokemonService {
         if(response.data){
           const results = response.data.results;
           this.nextUrl = response.data.next;
-          console.log(this.nextUrl);
+          //console.log(this.nextUrl);
           const promises: Promise<HttpResponse>[] = [];
           for (let index = 0; index < results.length; index++){
             const pokemon = results[index];
@@ -45,10 +45,10 @@ export class PokemonService {
             promises.push(CapacitorHttp.get(options));
           }
           await Promise.all(promises).then((responses)=>{
-          console.log(responses)
+          //console.log(responses)
           for(const response of responses){
             const pokemonData = response.data;
-            console.log(pokemonData);
+            //console.log(pokemonData);
 
             const pokemonObjt = new pokemon();
             pokemonObjt.id = pokemonData.order;
@@ -72,6 +72,7 @@ export class PokemonService {
               pokemonObjt.hiddenAbility = hiddenAbility.ability.name;
             }
             pokemons.push(pokemonObjt);
+            
           }
           }
           );
