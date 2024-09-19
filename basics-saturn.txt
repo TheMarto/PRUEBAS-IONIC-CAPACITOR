@@ -1,0 +1,24 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet">
+
+
+
+<style>
+.saturn {
+    font-family: "Protest Guerrilla", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+</style>
+
+<!--header-->
+<ion-header [translucent]="true">
+  <ion-toolbar class="m-0 header" style="height: 70px;">
+    <ion-title class="p-2 me-2 ms-2">
+      <div class="d-flex justify-content-between align-items-center p-0 mt-3">
+        <h1 class="text-info saturn" style="font-size: 40px;">Saturn<a href="#"><ion-icon name="planet-outline"></ion-icon></a></h1>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
