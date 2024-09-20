@@ -20,6 +20,9 @@
 .project{
   color: rgb(102, 102, 102);
 }
+.margin-last{
+  margin-bottom: 70px;
+}
 </style>
 
 <!--header-->
@@ -39,24 +42,32 @@
   </ion-toolbar>
 </ion-header>
 
+
+<!--container for cards-->
 <ion-content class="d-flex justify-content-center flex-column">
-  <ion-card *ngFor="let coupon of coupons" class="d-flex justify-content-center flex-column">
-    
-     
-    
-   
+  <ion-card *ngFor="let coupon of coupons, let thelast=last" [ngClass]="{'margin-last': thelast}" class="d-flex justify-content-center flex-column">
+    <!--img-->
       <ion-img [src]="coupon.img" style="max-width: 500px; height: auto;"></ion-img>
       <div class="justify-content-between d-flex">
       <ion-header>
-        <ion-text>{{coupon.name}}</ion-text>
+    <!--name and descount -->
+        <ion-text class="">{{coupon.name}}</ion-text>
       </ion-header>
       <ion-text class="">
         {{coupon.discount+'%'}}
       </ion-text>
     </div>
+    <!--activated button-->
     <ion-button (click)="changeActive(coupon)">
       {{coupon.active ? 'Desactivate': 'Activate'}}
     </ion-button>
 
   </ion-card>
 </ion-content>
+
+<!--ion fab for information for another page-->
+<ion-fab horizontal="start" vertical="bottom" slot="fixed">
+  <ion-fab-button (click)="goToCard()" [disabled]="!couponsActive">
+    <ion-icon name="card-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

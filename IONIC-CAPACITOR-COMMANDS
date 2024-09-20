@@ -49,13 +49,14 @@ server: {
 luego en el servicio lo importamos:
 import { CapacitorHttp } from '@capacitor/core';
 
-navegación pasando información:
+navegación pasando información (ion-fab):
 NavParams en provides (fuera del {})
 this.NavParams.data["pokemon"] = pokemon; paso de una pagina a otra la data que se llama pokemon e igual eso a pokemon (que es mi array)
 this.NavController.navigateForward("detail-pokemon") voy a la pagina y paso la info
 
 navegar hacia atrás:
 this.NavController.pop() >> va para atrás ya que en moviles guarda desde donde venimos
+tambien se puede usar ion-back-button: este no es tan usado porque se puede colgar si hay muchas paginas pero es muy facil y con solo una linea de code
 
 para hacer pipes es ionic g pipe nombre-de-pipe y agregar GetStartPipe en declaretion de module donde se usará con su import
 
@@ -66,4 +67,5 @@ npm install @awesome-cordova-plugins/screen-orientation
 
 en providers de app modules.ts:
 ScreenOrientation
+
 
