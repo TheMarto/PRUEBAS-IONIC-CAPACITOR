@@ -1,6 +1,7 @@
 export class Coupon{
     idProducto: number;
+    name:string;
     img: string;
     discount: number;
-    acttive: boolean = false;
+    active: boolean = false;
 }

@@ -12,7 +12,7 @@ export class CouponsService {
   getCoupons(){
     return fetch('./assets/data/data.json').then(async res=>{
       const coupons: Coupon[] = await res.json() as Coupon[];
-      coupons.forEach(c => c.acttive = false);
+      coupons.forEach(c => c.active = false);
       return Promise.resolve(coupons);
     }).catch(err =>{
       console.log(err);
