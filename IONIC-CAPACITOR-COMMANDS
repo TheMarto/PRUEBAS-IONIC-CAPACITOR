@@ -63,7 +63,7 @@ para hacer pipes es ionic g pipe nombre-de-pipe y agregar GetStartPipe en declar
 plugin de cordoba para que no cambie la orientación:
 npm install cordova-plugin-screen-orientation
 npm install @awesome-cordova-plugins/screen-orientation
-ionic cap sync
+
 en providers de app modules.ts:
 ScreenOrientation
 

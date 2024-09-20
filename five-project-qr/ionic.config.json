@@ -1,0 +1,7 @@
+{
+  "name": "five-project-qr",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
