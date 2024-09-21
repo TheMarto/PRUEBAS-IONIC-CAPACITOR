@@ -1,0 +1,7 @@
+{
+  "name": "six-project-burguer",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

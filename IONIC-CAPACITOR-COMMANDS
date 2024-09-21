@@ -1,5 +1,9 @@
 ################## IONIC - CAPACITOR ##########################
 
+### Basics ###
+
+inonic init >> iniciamos el proyecto (si importamos por ejemplo)
+npx cap sync >> sync averything
 
 ionic start name-of-project >> crear proyecto
 
@@ -23,7 +27,7 @@ Si da error se puede usar:
 sudo chmod -R 755/usr/local/bin
 sudo gem install cocoapos
 
-#Bootstrap en ionico:
+#### Bootstrap en ionico:
 npm install bootstrap
 luego en src/global.scss agregar: 
 @import "~bootstrap/dist/css/bootstrap.min.css";
@@ -32,8 +36,6 @@ ademas puedes agregar en angular.json > styles y > scripts:
 
 se puede usar MenuController para que la barra de menu se cierre o haga cosas
 
-para el flash usamos (hay mas que flash en ese plug):
-npm install @capgo/capacitor-flash
 
 
 API RestFull:
@@ -49,23 +51,59 @@ server: {
 luego en el servicio lo importamos:
 import { CapacitorHttp } from '@capacitor/core';
 
-navegación pasando información (ion-fab):
+MAVEGACION pasando información (ion-fab):
 NavParams en provides (fuera del {})
 this.NavParams.data["pokemon"] = pokemon; paso de una pagina a otra la data que se llama pokemon e igual eso a pokemon (que es mi array)
 this.NavController.navigateForward("detail-pokemon") voy a la pagina y paso la info
 
-navegar hacia atrás:
+MAVEGACION hacia atrás:
 this.NavController.pop() >> va para atrás ya que en moviles guarda desde donde venimos
 tambien se puede usar ion-back-button: este no es tan usado porque se puede colgar si hay muchas paginas pero es muy facil y con solo una linea de code
 
 para hacer pipes es ionic g pipe nombre-de-pipe y agregar GetStartPipe en declaretion de module donde se usará con su import
 
+ToastController >> mensajes al pulsar btn, esta mejor explicado en la pagina
+
+
+
+
+### Amgular instalers ###
+
+GENERAR QR CODE:
+npm install angularx-qrcode --save >> creador de QR
+QRCodeModule en module donde se vaya a usar
+
+LEER QR MAS ABAJO EN USOS PERIFERICOS
+
+
+
+#### usos de perifericos de movil ###
+
+para el flash usamos (hay mas que flash en ese plug):
+npm install @capgo/capacitor-flash
 
 plugin de cordoba para que no cambie la orientación:
 npm install cordova-plugin-screen-orientation
 npm install @awesome-cordova-plugins/screen-orientation
-
 en providers de app modules.ts:
 ScreenOrientation
 
+LECTOR QR (no generador):
+@capacitor/barcode-scanne
+npm install @capacitor/barcode-scanner
 
+IDIOMA QUE CAMBIA AUTOMATICAMENTE:
+npm install @capacitor/device
+npm i @ngx-translate/core
+npm i @ngx-translate/http-loader
+hay mucho codigo en app.module.ts
+
+### propiedades JS ####
+propiedad de arrays:
+.some >> debvuelve true o false dependiendo si en alguna parte del array hay true en ese punto mencionado (P5-coupons.page.ts)
+.filter >> buscar bien porque no lo llego a pillar como filtrar mejor (devuelte arrary)
+
+
+NOTAS: 
+--legacy-peer-deps si usamos cosas deprecated (viejo)
+con el QR hay qeu ir en android studio pasar en Grandle Scripts > variables.grandle > minSdkVersion en valor 26 y en build.grandle lo que hay que pegar en la page https://capacitorjs.com/docs/apis/barcode-scanner
