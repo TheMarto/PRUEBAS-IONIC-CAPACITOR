@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "7692d37d-d1dc-4056-b0ed-46b35c66fa2c",
+		"name": "burguer queen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19006206"
+	},
+	"item": [
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "getCategories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "getProductsByCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/products/category/64d4e0aa9271cdfa33bf4da6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"category",
+								"64d4e0aa9271cdfa33bf4da6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProductsById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/products/6480cf842d934e9138d8a3f0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"6480cf842d934e9138d8a3f0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "createOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNjg3MjgzMzQyLCJleHAiOjMxNzIzMTcyNTc0Mn0.OjX8p7azdt2wuZp34ZCWiT_W8Jy9_--b56q6fOtrTKU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"products\": [\r\n        {\r\n            \"quantity\": 2,\r\n            \"product\": {\r\n                \"_id\": \"64920e5fdc9f11684f37893d\",\r\n                \"name\": \"label.doritos.burguer\",\r\n                \"price\": 8.2,\r\n                \"img\": \"burguer-steak.jpg\",\r\n                \"extras\": [\r\n                    {\r\n                        \"products\": [\r\n                            {\r\n                                \"name\": \"label.big.menu\",\r\n                                \"img\": \"assets/img/products/big-menu.png\",\r\n                                \"options\": [\r\n                                    {\r\n                                        \"price\": 0.5,\r\n                                        \"activate\": false\r\n                                    }\r\n                                ]\r\n                            }\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"products\": [\r\n                            {\r\n                                \"name\": \"label.big.potato.classic\",\r\n                                \"img\": \"potato-classic.png\",\r\n                                \"options\": [\r\n                                    {\r\n                                        \"price\": 0.5,\r\n                                        \"activate\": false\r\n                                    }\r\n                                ]\r\n                            },\r\n                            {\r\n                                \"name\": \"label.queen.onion.rings\",\r\n                                \"img\": \"onion-ring.png\",\r\n                                \"options\": [\r\n                                    {\r\n                                        \"price\": 0.8,\r\n                                        \"activate\": false\r\n                                    }\r\n                                ]\r\n                            },\r\n                            {\r\n                                \"name\": \"label.salad.individual\",\r\n                                \"img\": \"salad.jpg\",\r\n                                \"options\": [\r\n                                    {\r\n                                        \"price\": 0.5,\r\n                                        \"activate\": false\r\n                                    }\r\n                                ]\r\n                            }\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"products\": [\r\n                            {\r\n                                \"name\": \"label.big.coca.cola.drink\",\r\n                                \"img\": \"coca-cola.png\",\r\n                                \"options\": [\r\n                                    {\r\n                                        \"price\": 1,\r\n                                        \"activate\": false\r\n                                    }\r\n                                ]\r\n                            },\r\n                            {\r\n                                \"name\": \"label.big.fanta.drink\",\r\n                                \"img\": \"fanta.jpg\",\r\n                                \"options\": [\r\n                                    {\r\n                                        \"price\": 1,\r\n                                        \"activate\": false\r\n                                    }\r\n                                ]\r\n                            },\r\n                            {\r\n                                \"name\": \"label.big.fanta.limon.drink\",\r\n                                \"img\": \"fanta-limon.jpg\",\r\n                                \"options\": [\r\n                                    {\r\n                                        \"price\": 1,\r\n                                        \"activate\": false\r\n                                    }\r\n                                ]\r\n                            }\r\n                        ]\r\n                    }\r\n                ],\r\n                \"category\": \"6480e137818090918d16a5cd\",\r\n                \"__v\": 0\r\n            }\r\n        }\r\n    ],\r\n    \"user\": {\r\n        \"_id\": \"6480e137818090918d16a612\",\r\n        \"email\": \"test@gmail.com\",\r\n        \"address\": \"Calle falsa 123\",\r\n        \"__v\": 0\r\n    },\r\n    \"address\": \"Calle falsa 123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "createUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test2@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"address\": \"Calle falsa 456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNjg3MjgzMzQyLCJleHAiOjMxNzIzMTcyNTc0Mn0.OjX8p7azdt2wuZp34ZCWiT_W8Jy9_--b56q6fOtrTKU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/users?email=test@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "test@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

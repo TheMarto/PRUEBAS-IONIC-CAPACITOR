@@ -11,6 +11,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { FooterComponent } from "./shared/footer/footer.component";
+import { NgxsModule } from '@ngxs/store';
+import { CategoriesState } from './state/categories.state';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')
@@ -19,7 +21,11 @@ export function HttpLoaderFactory(http: HttpClient){
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule, 
+    HttpClientModule,
     TranslateModule.forRoot({
         loader: {
             provide: TranslateLoader,
@@ -27,7 +33,13 @@ export function HttpLoaderFactory(http: HttpClient){
             deps: [HttpClient]
         }
     }),
-    ToolbarComponent, FooterComponent],
+    ToolbarComponent, 
+    FooterComponent,
+    NgxsModule.forRoot([
+      CategoriesState
+    ])
+  ],
+
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

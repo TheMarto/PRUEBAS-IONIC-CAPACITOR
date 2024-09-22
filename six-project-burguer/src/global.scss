@@ -34,7 +34,18 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+
 
 //boostrap import
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
+ion-card.list ion-card-header{
+    min-height: 80px;
+}
+ion-card.list ion-img {
+    width: 200px;
+    height: 150px;
+}
+ion-card.list ion-card-title {
+    font-size: 16px;
+}
