@@ -3,7 +3,7 @@
         <ion-row class="list-food">
             <!--recorremos lo que nos viene de mongo que tenemos en categories-->
             <ion-col size="6" *ngFor="let category of categories"> 
-                <ion-card class="ion-text-center list d-flex justify-content-center flex-column m-0 p-0 ">
+                <ion-card class="ion-text-center list d-flex justify-content-center flex-column m-0 p-0" (click)="goToProducts(category)">
                     <!--img of food-->
                     <ion-img [src]="'assets/img/products/'+category.img" class="p-0 m-0"></ion-img>
 

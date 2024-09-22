@@ -1,13 +1,69 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>product</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+<!--if dont exist extras-->
+  <ion-grid *ngIf="!product.extras">
+  </ion-grid>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">product</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!--if exi extras-->
+  <ion-grid *ngIf="product.extras">
+    <ion-row>
+      <ion-col>
+       <ion-item>
+        <ion-label>
+          {{'label.price' | translate}}:
+        </ion-label>
+
+        <ion-text>
+          {{product.price}} €
+        </ion-text>
+      </ion-item>
+      </ion-col>
+    </ion-row>
+<!-- name of contents-->
+    <ion-row *ngFor="let extra of product.extras">
+      <ion-col size="12" class="ion-text-center"> 
+        <ion-text>
+          {{extra.label | translate}}
+        </ion-text>
+      </ion-col>
+<!-- img-->
+      <ion-col [size]="extra.blocks.length == 1 ? 12 : 6" *ngFor="let block of extra.blocks">
+        <ion-card class="list ion-text-center">
+          <ion-img [src]="'assets/img/products/' + block.img"></ion-img>
+         
+          <!--name -->
+          <ion-card-header>
+            <ion-card-title>
+              {{block.name | translate}}
+              <ion-text *ngIf="block.options.length == 1">
+                ({{block.options[0].price + ' €'}})
+              </ion-text>
+
+              <!--price and activate-->
+            </ion-card-title>
+          </ion-card-header>
+          <!--one option-->
+          <ion-card-content *ngIf="block.options.length == 1">
+            <ion-checkbox [(ngModel)]="block.options[0].activate" name="check" labelplacement="end">
+              {{(block.options[0].activate ? block.options[0].price : '0') + ' €'}}
+            </ion-checkbox>
+          </ion-card-content>
+
+          <!--more than one option-->
+          <ion-card-content *ngIf="block.options.length > 1">
+            <ion-radio-group [value]="block.options[0].name" (ionChange)="changeMultipleOption($event, block.options)">
+              <ion-item lines="none" *ngFor="let option of block.options">
+                <ion-radio labelplacement="start" [value]="option.name">
+                  {{(option.name | translate) + '(+' + option.price + '€)'}}
+                </ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+
+
+
+  </ion-grid>
 </ion-content>

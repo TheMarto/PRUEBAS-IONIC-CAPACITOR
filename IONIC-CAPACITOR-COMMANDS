@@ -64,7 +64,7 @@ para hacer pipes es ionic g pipe nombre-de-pipe y agregar GetStartPipe en declar
 
 ToastController >> mensajes al pulsar btn, esta mejor explicado en la pagina
 
-
+(ionChange)= >> usamos para hacer los checks y lleval la info (product.page.ts de P6)
 
 
 ### Amgular instalers ###

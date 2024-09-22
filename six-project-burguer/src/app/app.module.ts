@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { IonicModule, IonicRouteStrategy, NavParams } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,7 +12,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { FooterComponent } from "./shared/footer/footer.component";
 import { NgxsModule } from '@ngxs/store';
-import { CategoriesState } from './state/categories.state';
+import { CategoriesState } from './state/categories/categories.state';
+import { ProductsState } from './state/productos/products.state';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')
@@ -36,11 +37,13 @@ export function HttpLoaderFactory(http: HttpClient){
     ToolbarComponent, 
     FooterComponent,
     NgxsModule.forRoot([
-      CategoriesState
-    ])
+      CategoriesState,
+      ProductsState
+    ]),
+    
   ],
 
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },NavParams],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
