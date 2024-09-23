@@ -29,4 +29,23 @@ export class ProductService {
     })
   }
 
+
+  getProductById(id: string){
+    return CapacitorHttp.get({
+      url: environment.urlApi + 'products/'+ id,
+      params: {},
+      headers: {
+        'content-tytpe': 'apliocation/json'
+      }
+    }).then((response: HttpResponse)=>{
+      if(response.status == 200){
+        const data = response.data as Product;
+        return data;
+      }
+      return null;
+    })
+  }
+
+
+
 }

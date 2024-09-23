@@ -11,9 +11,9 @@
         <ion-label>
           {{'label.price' | translate}}:
         </ion-label>
-
+<!--total price-->
         <ion-text>
-          {{product.price}} €
+          {{total}} €
         </ion-text>
       </ion-item>
       </ion-col>
@@ -43,7 +43,7 @@
           </ion-card-header>
           <!--one option-->
           <ion-card-content *ngIf="block.options.length == 1">
-            <ion-checkbox [(ngModel)]="block.options[0].activate" name="check" labelplacement="end">
+            <ion-checkbox [(ngModel)]="block.options[0].activate" name="check" labelplacement="end" (ionChange)="calculateTotal()">
               {{(block.options[0].activate ? block.options[0].price : '0') + ' €'}}
             </ion-checkbox>
           </ion-card-content>

@@ -13,7 +13,7 @@ export class ProductPage implements OnInit {
 
   //const
   public product: Product;
-
+  public total: number;
 
   constructor(
     private navParams: NavParams,
@@ -26,7 +26,13 @@ export class ProductPage implements OnInit {
    }
 
   ngOnInit() {
+//no entiendo porque no mete eesto es la función de abajo
+    if(this.product && this.product.extras){
+      this.total = this.product.price
+    }
 
+
+//si no hay prodicts go to categories
     if(!this.product){
       this.navController.navigateForward('categories');
       console.log(this.product.extras)
@@ -36,12 +42,40 @@ export class ProductPage implements OnInit {
 
   //se activa al tener ociones distintas en el checkbox
   changeMultipleOption($event, options: ProductExtraOptions[]){
-    console.log($event);
 
     options.forEach(op => op.activate = $event.detail.value == op.name);
-//AQUI QUITAR ESTOS LOGS!!!!!!!!!
-    console.log(options);
-    console.log(this.product)
+
+    //activamos method para sumar todo
+    this.calculateTotal();
   }
+ 
+
+
+
+  //Calcula el total haciendo foreach en cada opcion marcada
+  calculateTotal(){
+    let total = this.product.price;
+
+    this.product.extras.forEach(extra =>{
+      extra.blocks.forEach(block=>{
+        if(block.options.length == 1 && block.options[0].activate){ //fo one product
+          total +=  block.options[0].price;
+        }else if(block.options.length > 1){ //for more than one
+          const options = block.options.find(op => op.activate);
+          if(options){
+            total += options.price;
+          }
+          
+        }
+      })
+    
+    })
+    this.total = +total.toFixed(2);
+  }
+
+  //obteniendo el total sumamos al totalTotal
+  
+
+
 
 }
