@@ -47,7 +47,7 @@ export class ProductsState {
   }
 
   @Action(GetProductsById)
-  GetProductsById({ getState, setState }: StateContext<ProductsStateModel>, { payload }: GetProductsById) {
+  getProductById({ getState, setState }: StateContext<ProductsStateModel>, { payload }: GetProductsById) {
     return this.productServices.getProductById(payload.id).then((product: Product)=>{
       const state = getState();
       setState({

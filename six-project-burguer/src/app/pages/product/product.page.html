@@ -1,9 +1,17 @@
 <ion-content>
+
+  
+<!--refreshhh-->
+<ion-refresher slot="fixed" (ionRefresh)="getProduct($event)">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>
+
+
 <!--if dont exist extras-->
   <ion-grid *ngIf="!product.extras">
   </ion-grid>
 
-  <!--if exi extras-->
+  <!--if exist extras-->
   <ion-grid *ngIf="product.extras">
     <ion-row>
       <ion-col>

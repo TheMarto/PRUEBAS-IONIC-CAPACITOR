@@ -75,6 +75,11 @@ public products: Product[];
     //console.log(product.extras)
   }
 
-  
+  //refresh methos
+  refreshProducts($event){
+
+
+    $event.target.complete();
+  }
 
 }
