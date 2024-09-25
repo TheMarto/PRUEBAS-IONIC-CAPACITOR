@@ -70,6 +70,8 @@ LIFE CICLE IONIC:
 al entrar o salir de pagina podemos usar las funciones: 
 ionViewWillEnter, ionViewDidEnter, ionViewWillLeave y ionViewDidEnter
 
+para guardar las ordenes en el burguer (el tipico local storage)
+npm install @capacitor/preferences
 
 
 
