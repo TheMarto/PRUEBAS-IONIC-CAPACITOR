@@ -1,10 +1,11 @@
 <ion-content>
 
-    <!--refreshhh-->
+<!--refreshhh-->
     <ion-refresher slot="fixed" (ionRefresh)="refreshProducts($event)">
         <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
 
+<!--container with for, img and titles-->
     <ion-grid>
         <ion-row>
             <ion-col size="6" *ngFor="let product of products">

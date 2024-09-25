@@ -12,7 +12,7 @@ import { ProductsState } from 'src/app/state/productos/products.state';
   templateUrl: './product.page.html',
   styleUrls: ['./product.page.scss'],
 })
-export class ProductPage implements OnInit {
+export class ProductPage {
 
   //const
   public product: Product;
@@ -25,12 +25,15 @@ export class ProductPage implements OnInit {
     private store: Store
      
   ) {
-    //console.log(this.navParams.data['idCategory']);
-    this.product = this.navParams.data['product']; // guardo el product en esta variable
+    this.product = null;
    }
 
-  ngOnInit() {
-//no entiendo porque no mete eesto es la función de abajo
+   ionViewWillEnter(){
+
+    //console.log(this.navParams.data['idCategory']);
+    this.product = this.navParams.data['product']; // guardo el product en esta variable
+
+    //no entiendo porque no mete eesto es la función de abajo
     if(this.product && this.product.extras){
       this.total = this.product.price
       //console.log(ProductsState.product)
@@ -42,7 +45,9 @@ export class ProductPage implements OnInit {
       this.navController.navigateForward('categories');
       //console.log(this.product.extras)
     }
-  }
+
+   }
+
 
 
   //se activa al tener ociones distintas en el checkbox
@@ -87,7 +92,7 @@ export class ProductPage implements OnInit {
     this.store.dispatch(new GetProductsById({id: this.product._id})).subscribe({
       next: () =>{
         this.product = this.store.selectSnapshot(ProductsState.product);
-        //console.log(this.store.selectSnapshot(ProductsState.product))
+        console.log(this.store.selectSnapshot(ProductsState.product))
         this.calculateTotal();
       },
       complete: ()=>{

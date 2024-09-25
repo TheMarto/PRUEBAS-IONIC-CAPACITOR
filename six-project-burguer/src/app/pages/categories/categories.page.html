@@ -1,4 +1,10 @@
 <ion-content class="">
+
+    <!--refreshhh-->
+    <ion-refresher slot="fixed" (ionRefresh)="refreshCategories($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
     <ion-grid>
         <ion-row class="list-food">
             <!--recorremos lo que nos viene de mongo que tenemos en categories-->

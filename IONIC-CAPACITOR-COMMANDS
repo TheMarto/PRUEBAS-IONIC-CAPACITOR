@@ -66,6 +66,12 @@ ToastController >> mensajes al pulsar btn, esta mejor explicado en la pagina
 
 (ionChange)= >> usamos para hacer los checks y lleval la info (product.page.ts de P6)
 
+LIFE CICLE IONIC:
+al entrar o salir de pagina podemos usar las funciones: 
+ionViewWillEnter, ionViewDidEnter, ionViewWillLeave y ionViewDidEnter
+
+
+
 
 ### Amgular instalers ###
 
