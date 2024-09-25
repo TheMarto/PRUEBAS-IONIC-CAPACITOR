@@ -102,5 +102,5 @@ export class ProductPage {
   }
 
 
-
+  startCamera(){}
 }

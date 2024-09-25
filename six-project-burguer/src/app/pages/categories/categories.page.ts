@@ -77,4 +77,7 @@ private subscription: Subscription;
   ionViewWillLeave(){
     this.subscription.unsubscribe();
   }
+
+
+  startCamera(){}
 }
