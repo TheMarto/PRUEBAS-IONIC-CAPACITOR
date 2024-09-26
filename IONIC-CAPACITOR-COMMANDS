@@ -62,7 +62,7 @@ tambien se puede usar ion-back-button: este no es tan usado porque se puede colg
 
 para hacer pipes es ionic g pipe nombre-de-pipe y agregar GetStartPipe en declaretion de module donde se usará con su import
 
-ToastController >> mensajes al pulsar btn, esta mejor explicado en la pagina
+ToastController >> mensajes al pulsar btn, esta mejor explicado en la pagina (services >> toast.service.ts de six)
 
 (ionChange)= >> usamos para hacer los checks y lleval la info (product.page.ts de P6)
 
@@ -72,6 +72,11 @@ ionViewWillEnter, ionViewDidEnter, ionViewWillLeave y ionViewDidEnter
 
 para guardar las ordenes en el burguer (el tipico local storage)
 npm install @capacitor/preferences
+(creo un servicio para llamar metodos que usan Preference para guardar las ordenes)
+
+funciones para arrays y funciones (es una biblioteca)
+npm -i lodash-es 
+
 
 
 
