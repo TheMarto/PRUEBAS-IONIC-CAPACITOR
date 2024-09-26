@@ -79,5 +79,5 @@ private subscription: Subscription;
   }
 
 
-  startCamera(){}
+  
 }
