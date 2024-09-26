@@ -75,7 +75,7 @@ npm install @capacitor/preferences
 (creo un servicio para llamar metodos que usan Preference para guardar las ordenes)
 
 funciones para arrays y funciones (es una biblioteca)
-npm -i lodash-es 
+npm i lodash-es 
 
 
 
