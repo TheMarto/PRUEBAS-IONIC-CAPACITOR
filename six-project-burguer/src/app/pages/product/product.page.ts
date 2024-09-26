@@ -4,6 +4,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { Store } from '@ngxs/store';
 import { Product } from 'src/app/models/product';
 import { ProductExtraOptions } from 'src/app/models/Product-extra-options';
+import { ToastService } from 'src/app/services/toast.service';
+import { UserOrderService } from 'src/app/services/user-order.service';
 import { GetProductsById } from 'src/app/state/productos/products.actions';
 import { ProductsState } from 'src/app/state/productos/products.state';
 
@@ -22,7 +24,10 @@ export class ProductPage {
     private navParams: NavParams,
     private navController: NavController,
     private translate: TranslateService,
-    private store: Store
+    private store: Store,
+    private userOrderServices: UserOrderService,
+    private toastServices: ToastService,
+    
      
   ) {
     this.product = null;
@@ -100,6 +105,15 @@ export class ProductPage {
       }
     })
   }
+
+  addProductOrder(){
+    this.userOrderServices.addProduct(this.product);
+    //console.log(this.userOrderServices.getProducts())
+    this.toastServices.showToast(
+      this.translate.instant('label.product.add.success')
+    );
+    this.navController.navigateForward('/');
+  } 
 
 
   

@@ -69,4 +69,8 @@ export class UserOrderService {
   }
 
 
+  getProducts(){
+    return this.order.products;
+  }
+
 }
