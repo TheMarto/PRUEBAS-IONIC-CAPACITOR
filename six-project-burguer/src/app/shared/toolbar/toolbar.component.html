@@ -32,8 +32,25 @@
   <ion-title>{{'label.menu' | translate}}</ion-title>
 </ion-header>
 
-<ion-content>
 
+<!-- contenido del toast-->
+<ion-content>
+  <ion-list>
+    <!--firt button-->
+    <ion-item>
+      <ion-icon name="people-outline"></ion-icon>
+      <ion-label>{{(userOrderService.hasOrder() ? 'label.logout' : 'label.start.session') | translate}}</ion-label>
+    </ion-item>
+
+<!--second button-->
+    <ion-item>
+      <ion-icon name="cart-outline"></ion-icon>
+      <ion-label>{{'label.see.order' | translate}}</ion-label>
+      <ion-badge slot="end">
+        {{userOrderService.numProducts()}}
+      </ion-badge>
+    </ion-item>
+  </ion-list>
 </ion-content>
 </ion-menu>
 

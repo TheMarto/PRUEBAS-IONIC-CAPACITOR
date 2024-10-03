@@ -73,4 +73,17 @@ export class UserOrderService {
     return this.order.products;
   }
 
+  hasOrder(){
+    return this.order && this.order.user;
+  }
+
+  //cantidad de productos para ver en el toolbar
+  numProducts(){
+    if(this.order && this.order.products.length > 0){
+      return this.order.products.reduce((acum: number, value: QuantityProduct) => value.quiantity + acum, 0) 
+      // funcion que suma las ordenes mas lo que ya tenemos acumulado empezando de 0
+    }
+    return 0;
+  }
+
 }

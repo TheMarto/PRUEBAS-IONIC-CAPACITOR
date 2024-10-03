@@ -92,6 +92,10 @@ GESTOR NGX:
 https://www.discoduroderoer.es/como-implementar-ngxs-en-tu-proyecto-angular/
 npm install @ngxs/store --sabe
 ALERTA >>> LEER MAS SOBRE STATE MANAGER (video 137 ionic con esto)
+para crear un state se usa:
+ngxs --name auth
+
+ion-badge para poner un numero de conteo azul al final
 
 
 #### usos de perifericos de movil ###

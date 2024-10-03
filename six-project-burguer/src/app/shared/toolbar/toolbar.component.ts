@@ -4,6 +4,7 @@ import { EventType, Router, RoutesRecognized } from '@angular/router';
 import { IonicModule, NavController } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { filter } from 'rxjs';
+import { UserOrderService } from 'src/app/services/user-order.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -19,6 +20,7 @@ public showBack: boolean;
   constructor(
     private router: Router, //para lo del botton en el oninit
     private navController: NavController,
+    public userOrderService: UserOrderService,
   ) { 
     this.showBack = false;
   }
