@@ -56,6 +56,6 @@ public showInfoUser: boolean;
 
   //back funtion
   back(){
-    this.showInfoUser = false;
+    this.showInfoUser = false;   
   }
 }
