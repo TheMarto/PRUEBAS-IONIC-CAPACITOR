@@ -52,4 +52,10 @@ public showInfoUser: boolean;
   logout(){
     
   }
+
+
+  //back funtion
+  back(){
+    this.showInfoUser = false;
+  }
 }

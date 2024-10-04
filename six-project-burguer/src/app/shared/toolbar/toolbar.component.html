@@ -37,6 +37,7 @@
 <ion-content>
   <ion-list *ngIf="!showInfoUser">
     <!--firt button-->
+    <!--muy intelignte, habilitamos showPanelInfoUser y dejamos de ver todo lo que hicimos del toast y vemos lo del component de login-->
     <ion-item (click)="userOrderService.hasOrder() ? logout() : showPanelInfoUser()">
       <ion-icon name="people-outline"></ion-icon>
       <ion-label>{{(userOrderService.hasOrder() ? 'label.logout' : 'label.start.session') | translate}}</ion-label>
@@ -52,7 +53,12 @@
     </ion-item>
   </ion-list>
 
-  <app-login *ngIf="showInfoUser"></app-login>
+  <app-login 
+    *ngIf="showInfoUser" 
+    (back)="back()" 
+    (doLogin)="back()"
+  >
+  </app-login>
 
 </ion-content>
 </ion-menu>
