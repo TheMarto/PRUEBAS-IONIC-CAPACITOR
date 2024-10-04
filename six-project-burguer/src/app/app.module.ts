@@ -15,6 +15,7 @@ import { NgxsModule } from '@ngxs/store';
 import { CategoriesState } from './state/categories/categories.state';
 import { ProductsState } from './state/productos/products.state';
 import { AuthState } from './state/auth/auth.state';
+import { LoginComponent } from './shared/login/login.component';
 
 
 export function HttpLoaderFactory(http: HttpClient){
@@ -38,10 +39,11 @@ export function HttpLoaderFactory(http: HttpClient){
     }),
     ToolbarComponent, 
     FooterComponent,
+    LoginComponent,
     NgxsModule.forRoot([
       CategoriesState,
       ProductsState,
-      AuthState
+      AuthState,
     ]),
     
   ],

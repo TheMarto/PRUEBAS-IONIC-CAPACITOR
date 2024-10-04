@@ -5,17 +5,19 @@ import { IonicModule, NavController } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { filter } from 'rxjs';
 import { UserOrderService } from 'src/app/services/user-order.service';
+import { LoginComponent } from "../login/login.component";
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
   standalone: true,
-  imports:[IonicModule, CommonModule, TranslateModule]
+  imports: [IonicModule, CommonModule, TranslateModule, LoginComponent, LoginComponent]
 })
 export class ToolbarComponent  implements OnInit {
 //methods
 public showBack: boolean;
+public showInfoUser: boolean;
 
   constructor(
     private router: Router, //para lo del botton en el oninit
@@ -23,6 +25,7 @@ public showBack: boolean;
     public userOrderService: UserOrderService,
   ) { 
     this.showBack = false;
+    this.showInfoUser = false;
   }
 
   ngOnInit() {
@@ -40,4 +43,13 @@ public showBack: boolean;
     this.navController.back()
   }
 
+
+
+  showPanelInfoUser(){
+    this.showInfoUser = true;
+  }
+
+  logout(){
+    
+  }
 }

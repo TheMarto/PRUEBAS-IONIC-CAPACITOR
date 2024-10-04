@@ -35,9 +35,9 @@
 
 <!-- contenido del toast-->
 <ion-content>
-  <ion-list>
+  <ion-list *ngIf="!showInfoUser">
     <!--firt button-->
-    <ion-item>
+    <ion-item (click)="userOrderService.hasOrder() ? logout() : showPanelInfoUser()">
       <ion-icon name="people-outline"></ion-icon>
       <ion-label>{{(userOrderService.hasOrder() ? 'label.logout' : 'label.start.session') | translate}}</ion-label>
     </ion-item>
@@ -51,6 +51,9 @@
       </ion-badge>
     </ion-item>
   </ion-list>
+
+  <app-login *ngIf="showInfoUser"></app-login>
+
 </ion-content>
 </ion-menu>
 
