@@ -5,6 +5,7 @@ import { KEY_ORDER } from '../constants/constans';
 import { Product } from '../models/product';
 import { QuantityProduct } from '../models/quantity-product';
 import { isEqual } from 'lodash-es'
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -84,6 +85,13 @@ export class UserOrderService {
       // funcion que suma las ordenes mas lo que ya tenemos acumulado empezando de 0
     }
     return 0;
+  }
+
+  //de lo que viene de state users para obtener datos de usuario y aqui lo guardamos
+  async saveUser(user: User){
+    delete user.password // no queremos la contrase;a por ende lo quitamos al guardar 
+    this.order.user = user;
+    await this.saveOrder()
   }
 
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { State, Action, StateContext, select, Selector } from '@ngxs/store';
+import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { Login } from './auth.actions';
 import { AuthService } from './auth.service';
 import { TokenUser } from 'src/app/models/token-user';
@@ -42,7 +42,7 @@ export class AuthState {
   Login({ setState }: StateContext<AuthStateModel>, { payload }: Login) {
     return this.AuthService.login(payload.email, payload.password).then(async (token: TokenUser)=>{
       if(token){
-        await Preferences.set({key: KEY_TOKEN, value: token.accessToken})
+        await Preferences.set({key: KEY_TOKEN, value: token.accessToken});
         setState: ({success: true})
       }
       else{

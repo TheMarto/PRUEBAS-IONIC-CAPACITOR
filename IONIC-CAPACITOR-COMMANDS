@@ -93,7 +93,9 @@ https://www.discoduroderoer.es/como-implementar-ngxs-en-tu-proyecto-angular/
 npm install @ngxs/store --sabe
 ALERTA >>> LEER MAS SOBRE STATE MANAGER (video 137 ionic con esto)
 para crear un state se usa:
-ngxs --name auth
+ngxs --name nombre-de-state >> sirve para crear los estados que estos darán acciones a los componentes
+https://www.discoduroderoer.es/como-implementar-ngxs-en-tu-proyecto-angular/
+
 
 ion-badge para poner un numero de conteo azul al final
 

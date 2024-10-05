@@ -18,13 +18,15 @@ export class AuthService {
       },
       params:{},
       headers: {
-        'content-type': 'aplication/json'
+        'Content-Type': 'application/json'
       }      
     }).then((response: HttpResponse)=>{
       if(response.status == 201){
         const data = response.data as TokenUser;
         return data;
       }
+      if(response.status == 401){console.log("error 401")}
+      if(response.status == 400){console.log("error 400")}
       return null;
     }).catch(err => {
       console.error(err);
@@ -32,5 +34,5 @@ export class AuthService {
     })
   }
 
-  constructor() { }
+
 }

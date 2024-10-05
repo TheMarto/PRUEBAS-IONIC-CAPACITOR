@@ -1,11 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { EventType, Router, RoutesRecognized } from '@angular/router';
-import { IonicModule, NavController } from '@ionic/angular';
-import { TranslateModule } from '@ngx-translate/core';
+import { IonicModule, MenuController, NavController, ToastController } from '@ionic/angular';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs';
 import { UserOrderService } from 'src/app/services/user-order.service';
 import { LoginComponent } from "../login/login.component";
+import { Preferences } from '@capacitor/preferences';
+import { KEY_TOKEN } from 'src/app/constants/constans';
+
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -23,6 +27,9 @@ public showInfoUser: boolean;
     private router: Router, //para lo del botton en el oninit
     private navController: NavController,
     public userOrderService: UserOrderService,
+    private menuController: MenuController,
+    private toastService: ToastService,
+    private translateService: TranslateService,
   ) { 
     this.showBack = false;
     this.showInfoUser = false;
@@ -49,8 +56,14 @@ public showInfoUser: boolean;
     this.showInfoUser = true;
   }
 
-  logout(){
-    
+  async logout(){
+    await this.userOrderService.clearOrder();
+    await Preferences.remove({key: KEY_TOKEN});
+    this.navController.navigateForward('categories')
+    this.menuController.close('content');
+    this.toastService.showToast(
+      this.translateService.instant('label.logout.success')
+    )
   }
 
 

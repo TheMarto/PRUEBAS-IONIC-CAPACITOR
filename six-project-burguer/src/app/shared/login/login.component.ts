@@ -8,6 +8,8 @@ import { User } from 'src/app/models/user';
 import { ToastService } from 'src/app/services/toast.service';
 import { Login } from 'src/app/state/auth/auth.actions';
 import { AuthState } from 'src/app/state/auth/auth.state';
+import { GetUser } from 'src/app/state/users/users.actions';
+
 
 @Component({
   selector: 'app-login',
@@ -55,6 +57,7 @@ export class LoginComponent  {
           this.toastServices.showToast(
             this.translateService.instant('label.login.success')
           ),
+          this.store.dispatch(new GetUser({email: this.user.email}))
           this.doLogin.emit(true)
         }
         else{

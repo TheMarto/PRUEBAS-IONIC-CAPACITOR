@@ -13,9 +13,13 @@ import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { FooterComponent } from "./shared/footer/footer.component";
 import { NgxsModule } from '@ngxs/store';
 import { CategoriesState } from './state/categories/categories.state';
+
+import { LoginComponent } from './shared/login/login.component';
 import { ProductsState } from './state/productos/products.state';
 import { AuthState } from './state/auth/auth.state';
-import { LoginComponent } from './shared/login/login.component';
+import { UsersState } from './state/users/users.state';
+
+
 
 
 export function HttpLoaderFactory(http: HttpClient){
@@ -44,6 +48,7 @@ export function HttpLoaderFactory(http: HttpClient){
       CategoriesState,
       ProductsState,
       AuthState,
+      UsersState,
     ]),
     
   ],
