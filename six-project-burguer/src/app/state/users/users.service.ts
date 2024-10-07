@@ -36,5 +36,30 @@ export class UsersService {
     })
   }
 
+  //createUser para el state en @action
+  createUser(user: User){
+    
+    //post para crear usuario
+    return CapacitorHttp.post({
+      url: environment.urlApi + 'users',
+      params: {},
+      data: {
+        ...user
+      },
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response: HttpResponse)=>{
+      if(response.status == 201){
+        const data = response.data as boolean;
+        return data
+      }
+      return false;
+    }).catch(err =>{
+      console.error(err)
+      return false; 
+    })
+  }
+
 
 }

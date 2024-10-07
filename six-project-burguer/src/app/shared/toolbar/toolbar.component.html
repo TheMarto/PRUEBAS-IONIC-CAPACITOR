@@ -33,7 +33,7 @@
 </ion-header>
 
 
-<!-- contenido del toast-->
+<!-- contenido del menu-->
 <ion-content>
   <ion-list *ngIf="!showInfoUser">
     <!--firt button-->
@@ -54,17 +54,26 @@
   </ion-list>
 
   <app-login 
-    *ngIf="showInfoUser" 
+    *ngIf="!showCreateAccount && showInfoUser" 
     (back)="back()" 
     (doLogin)="back()"
+    (newAccount)="newAccount()"
   >
+
+
   </app-login>
+  <app-create-account
+    *ngIf="showCreateAccount && showCreateAccount"
+    (back)="showLogin()"
+    (doCreateAcount)="back()"
+  >
+  </app-create-account>
 
 </ion-content>
 </ion-menu>
 
 
-
+<!--TOOLBAR-->
 <!--header-->
 <ion-header [translucent]="true" class="">
   <ion-toolbar class="m-0 p-0 header d-flex justify-content-between align-items-center flex-wrap">

@@ -10,18 +10,20 @@ import { Preferences } from '@capacitor/preferences';
 import { KEY_TOKEN } from 'src/app/constants/constans';
 
 import { ToastService } from 'src/app/services/toast.service';
+import { CreateAccountComponent } from "../create-account/create-account.component";
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, TranslateModule, LoginComponent, LoginComponent]
+  imports: [IonicModule, CommonModule, TranslateModule, LoginComponent, LoginComponent, CreateAccountComponent, CreateAccountComponent]
 })
 export class ToolbarComponent  implements OnInit {
 //methods
 public showBack: boolean;
 public showInfoUser: boolean;
+public showCreateAccount: boolean;
 
   constructor(
     private router: Router, //para lo del botton en el oninit
@@ -47,7 +49,7 @@ public showInfoUser: boolean;
   }
 //go back
   goBack(){
-    this.navController.back()
+    this.navController.back();
   }
 
 
@@ -70,5 +72,16 @@ public showInfoUser: boolean;
   //back funtion
   back(){
     this.showInfoUser = false;   
+    this.showCreateAccount = false;
+  }
+
+  //para poner truw show create account const
+  newAccount(){
+    this.showCreateAccount = true;
+  }
+
+  //para volver al login estando en create account
+  showLogin(){
+    this.showCreateAccount = false;
   }
 }

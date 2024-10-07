@@ -2,6 +2,8 @@
 
 ### Basics ###
 
+all the features here: https://ionicframework.com/docs/api/
+
 inonic init >> iniciamos el proyecto (si importamos por ejemplo)
 npx cap sync >> sync averything
 

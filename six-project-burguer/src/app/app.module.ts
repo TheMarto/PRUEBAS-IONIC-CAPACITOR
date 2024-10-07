@@ -18,6 +18,7 @@ import { LoginComponent } from './shared/login/login.component';
 import { ProductsState } from './state/productos/products.state';
 import { AuthState } from './state/auth/auth.state';
 import { UsersState } from './state/users/users.state';
+import { CreateAccountComponent } from './shared/create-account/create-account.component';
 
 
 
@@ -44,6 +45,7 @@ export function HttpLoaderFactory(http: HttpClient){
     ToolbarComponent, 
     FooterComponent,
     LoginComponent,
+    CreateAccountComponent,
     NgxsModule.forRoot([
       CategoriesState,
       ProductsState,
