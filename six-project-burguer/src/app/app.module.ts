@@ -19,6 +19,7 @@ import { ProductsState } from './state/productos/products.state';
 import { AuthState } from './state/auth/auth.state';
 import { UsersState } from './state/users/users.state';
 import { CreateAccountComponent } from './shared/create-account/create-account.component';
+import { ListProductsOrderComponent } from './shared/list-products-order/list-products-order.component';
 
 
 
@@ -46,6 +47,7 @@ export function HttpLoaderFactory(http: HttpClient){
     FooterComponent,
     LoginComponent,
     CreateAccountComponent,
+    ListProductsOrderComponent,
     NgxsModule.forRoot([
       CategoriesState,
       ProductsState,

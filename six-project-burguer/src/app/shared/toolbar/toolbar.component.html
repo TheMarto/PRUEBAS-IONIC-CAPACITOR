@@ -35,7 +35,7 @@
 
 <!-- contenido del menu-->
 <ion-content>
-  <ion-list *ngIf="!showInfoUser">
+  <ion-list *ngIf="!showInfoUser && !showOder">
     <!--firt button-->
     <!--muy intelignte, habilitamos showPanelInfoUser y dejamos de ver todo lo que hicimos del toast y vemos lo del component de login-->
     <ion-item (click)="userOrderService.hasOrder() ? logout() : showPanelInfoUser()">
@@ -68,6 +68,9 @@
     (doCreateAcount)="back()"
   >
   </app-create-account>
+
+  <app-list-products-order
+  *ngIf="showOder"></app-list-products-order>
 
 </ion-content>
 </ion-menu>

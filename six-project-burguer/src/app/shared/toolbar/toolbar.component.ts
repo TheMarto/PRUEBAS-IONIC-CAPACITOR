@@ -11,19 +11,21 @@ import { KEY_TOKEN } from 'src/app/constants/constans';
 
 import { ToastService } from 'src/app/services/toast.service';
 import { CreateAccountComponent } from "../create-account/create-account.component";
+import { ListProductsOrderComponent } from "../list-products-order/list-products-order.component";
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, TranslateModule, LoginComponent, LoginComponent, CreateAccountComponent, CreateAccountComponent]
+  imports: [IonicModule, CommonModule, TranslateModule, LoginComponent, LoginComponent, CreateAccountComponent, CreateAccountComponent, ListProductsOrderComponent]
 })
 export class ToolbarComponent  implements OnInit {
 //methods
 public showBack: boolean;
 public showInfoUser: boolean;
 public showCreateAccount: boolean;
+public showOder: boolean;
 
   constructor(
     private router: Router, //para lo del botton en el oninit
@@ -35,6 +37,7 @@ public showCreateAccount: boolean;
   ) { 
     this.showBack = false;
     this.showInfoUser = false;
+    this.showOder = false;
   }
 
   ngOnInit() {
@@ -73,6 +76,7 @@ public showCreateAccount: boolean;
   back(){
     this.showInfoUser = false;   
     this.showCreateAccount = false;
+    this.showOder = false;
   }
 
   //para poner truw show create account const
