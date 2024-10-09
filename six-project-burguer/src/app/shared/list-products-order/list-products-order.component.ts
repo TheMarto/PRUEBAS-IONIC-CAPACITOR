@@ -11,7 +11,7 @@ import { CreateAccountComponent } from '../create-account/create-account.compone
   templateUrl: './list-products-order.component.html',
   styleUrls: ['./list-products-order.component.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, TranslateModule, CreateAccountComponent]
+  imports: [IonicModule, CommonModule, FormsModule, TranslateModule, CreateAccountComponent,]
 })
 export class ListProductsOrderComponent {
 
@@ -19,7 +19,6 @@ export class ListProductsOrderComponent {
   //variables
   public userOrderService: UserOrderService;
   constructor() { }
-
  
 
 }

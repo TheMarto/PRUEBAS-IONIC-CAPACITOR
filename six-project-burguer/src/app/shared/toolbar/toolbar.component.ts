@@ -88,4 +88,14 @@ public showOder: boolean;
   showLogin(){
     this.showCreateAccount = false;
   }
+
+  //go to pay funtion
+  goToPay(){
+
+  }
+
+  //para ver la parte de order en el html
+  seeOrder(){
+    this.showOder = true;
+  }
 }

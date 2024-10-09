@@ -4,7 +4,7 @@ import { Preferences } from '@capacitor/preferences';
 import { KEY_ORDER } from '../constants/constans';
 import { Product } from '../models/product';
 import { QuantityProduct } from '../models/quantity-product';
-import { isEqual } from 'lodash-es'
+import { isEqual, remove } from 'lodash-es'
 import { User } from '../models/user';
 
 @Injectable({
@@ -92,6 +92,34 @@ export class UserOrderService {
     delete user.password // no queremos la contrase;a por ende lo quitamos al guardar 
     this.order.user = user;
     await this.saveOrder()
+  }
+
+  //more o less products
+  //more
+  async oneMoreProduct(product: Product){
+    const productFound = this.searchProduct(product);
+    if(productFound){
+      productFound.quiantity++;
+    }
+    await this.saveOrder();
+  }
+
+  //Less
+  async oneLessProduct(product: Product){
+    const productFound = this.searchProduct(product);
+    if(productFound){
+      productFound.quiantity--;
+      if(productFound.quiantity == 0){
+        this.removeProduct(product);
+      }
+    }
+    await this.saveOrder();
+  }
+
+  //funcion tapa eliminar el producto (si es 0)
+  async removeProduct(product: Product){
+    remove(this.order.products, p => isEqual(p.product, product));
+    await this.saveOrder();
   }
 
 

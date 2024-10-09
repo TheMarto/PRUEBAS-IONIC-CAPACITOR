@@ -29,13 +29,28 @@
 <!--menu in right side-->
 <ion-menu side="end" content-id="content" menu-id="contentmenu"> <!--content-id need to be the same of id from app.component.ts and menu-id is for menu-controller-->
 <ion-header style="height: 150px;" class="d-flex justify-content-center align-items-center text-align">
-  <ion-title>{{'label.menu' | translate}}</ion-title>
+  <ion-item lines="none">
+<!--icon for go back-->
+    <ion-icon 
+    name="arrow-back-outline"
+    *ngIf="showInfoUser || showOder"
+    (click)="back()"
+    >
+    </ion-icon>
+<!--title of menu-->
+    <ion-title>{{'label.menu' | translate}}</ion-title>
+  </ion-item>
 </ion-header>
 
 
+
 <!-- contenido del menu-->
+
 <ion-content>
+
+  <!--loging and order-->
   <ion-list *ngIf="!showInfoUser && !showOder">
+
     <!--firt button-->
     <!--muy intelignte, habilitamos showPanelInfoUser y dejamos de ver todo lo que hicimos del toast y vemos lo del component de login-->
     <ion-item (click)="userOrderService.hasOrder() ? logout() : showPanelInfoUser()">
@@ -43,8 +58,8 @@
       <ion-label>{{(userOrderService.hasOrder() ? 'label.logout' : 'label.start.session') | translate}}</ion-label>
     </ion-item>
 
-<!--second button-->
-    <ion-item>
+<!--second button to see the order-->
+    <ion-item (click)="seeOrder()">
       <ion-icon name="cart-outline"></ion-icon>
       <ion-label>{{'label.see.order' | translate}}</ion-label>
       <ion-badge slot="end">
@@ -53,15 +68,26 @@
     </ion-item>
   </ion-list>
 
+
+
+
+
+
+
+  <!-- login interface: se ejecuta cuando es false showcreateaccount y true showinfouser-->
   <app-login 
     *ngIf="!showCreateAccount && showInfoUser" 
     (back)="back()" 
     (doLogin)="back()"
     (newAccount)="newAccount()"
   >
-
-
   </app-login>
+
+
+
+
+
+  <!-- Create Account: se muestra solo si los dos son true y dependiendo si bacho o do.. son true se ejecuta otra cosa-->
   <app-create-account
     *ngIf="showCreateAccount && showCreateAccount"
     (back)="showLogin()"
@@ -69,8 +95,31 @@
   >
   </app-create-account>
 
-  <app-list-products-order
-  *ngIf="showOder"></app-list-products-order>
+
+  
+
+
+
+
+<!-- si queremos pagar y lista de products-->
+   
+    <ng-container *ngIf="showOder">
+
+<!-- nos lleva a list product solo cunado esta true showOrder-->
+      <app-list-products-order></app-list-products-order>
+
+
+<!-- bottons with click and disabled if we have 0 productos in the cart-->
+      <ion-button
+      expand="block"
+      (click)="goToPay()"
+      [disabled]="userOrderService.numProducts() == 0"
+      >
+    {{'label.pay.order' | translate}}</ion-button>
+
+    </ng-container>
+
+
 
 </ion-content>
 </ion-menu>
