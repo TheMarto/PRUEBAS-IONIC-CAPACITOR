@@ -91,7 +91,9 @@ public showOder: boolean;
 
   //go to pay funtion
   goToPay(){
-
+    this.back();
+    this.menuController.close('content');
+    this.navController.navigateForward('pay');
   }
 
   //para ver la parte de order en el html

@@ -17,6 +17,15 @@
               </ion-label>
             </ion-item>
 
+        <!--if we have extras need to show -->
+        <ion-item *ngIf="quiantityProducts.product.extras">
+          <ul>
+            <li *ngFor="let optionSelected of quiantityProducts.product.extras | extrasSelected">
+              {{optionSelected}}
+            </li>
+          </ul>
+        </ion-item>
+
         <!--quantity of products-->
             <ion-card>
               <ion-card-content>
