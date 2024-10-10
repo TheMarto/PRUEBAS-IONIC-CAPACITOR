@@ -19,6 +19,18 @@
 
 <!--if dont exist extras-->
   <ion-grid *ngIf="!product.extras">
+    <ion-row>
+      <ion-col>
+        <ion-card class="list ion-text-center">
+          <ion-img [src]="'assets/img/products/' + product.img"></ion-img>
+          <ion-card-header>
+            <ion-card-title>
+              {{('label.price' | translate) + ': ' + product.price + ' €'}}
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 
   <!--if exist extras-->

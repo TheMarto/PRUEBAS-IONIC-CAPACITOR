@@ -26,10 +26,28 @@
                   <ion-text class="ion-cadding">{{quiantityProducts.quiantity}}</ion-text>
                   <ion-icon (click)="userOrderService.oneMoreProduct(quiantityProducts.product)" name="add-circle-outline"></ion-icon>
                 </ion-item>
+
+        <!--precio total sumando los quantitys-->
+                <ion-item lines="none">
+                  <ion-label>
+                    {{('label.total' | translate) + userOrderService.totalPrice(quiantityProducts) + ' €'}}
+                  </ion-label>
+                </ion-item>
               </ion-card-content>
             </ion-card>
           </ng-container>
       </ion-list>
     </ion-col>
   </ion-row>
+
+  <!-- total de todos los productos con su quiantity y products sumados-->
+   <ion-row *ngIf="userOrderService.numProducts() > 0">
+    <ion-col>
+      <ion-item>
+        <ion-label>
+          {{('label.total.order' | translate) + userOrderService.totalOrder() + ' €'}}
+        </ion-label>
+      </ion-item>
+    </ion-col>
+   </ion-row>
 </ion-grid>

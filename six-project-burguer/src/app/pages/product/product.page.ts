@@ -69,24 +69,9 @@ export class ProductPage {
 
   //Calcula el total haciendo foreach en cada opcion marcada
   calculateTotal(){
-    let total = this.product.price;
+    //todo el codigo nos hemos llevado al servicio de user-order y le mandamos el product nada mas
+    this.total = this.userOrderServices.priceProduct(this.product);
 
-    this.product.extras.forEach(extra =>{
-      extra.blocks.forEach(block=>{
-        if(block.options.length == 1 && block.options[0].activate){ //fo one product
-          total +=  block.options[0].price;
-        }else if(block.options.length > 1){ //for more than one
-          const options = block.options.find(op => op.activate);
-          if(options){
-            total += options.price;
-          }
-          
-        }
-      })
-    
-    })
-    //obteniendo el total sumamos al totalTotal
-    this.total = +total.toFixed(2);
   }
 
   

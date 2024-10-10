@@ -122,5 +122,48 @@ export class UserOrderService {
     await this.saveOrder();
   }
 
+  //contabilizar precio total para la compra en el menu
+  priceProduct(product: Product){
+    let total = product.price;
+
+    //si  tiene extra asi sino el precio total y ya
+    if(product.extras){
+      
+      product.extras.forEach(extra =>{
+      extra.blocks.forEach(block=>{
+        if(block.options.length == 1 && block.options[0].activate){ //fo one product
+          total +=  block.options[0].price;
+        }else if(block.options.length > 1){ //for more than one
+          const options = block.options.find(op => op.activate);
+          if(options){
+            total += options.price;
+          }
+          
+        }
+      })
+    
+    })}
+
+    
+    //obteniendo el total sumamos al totalTotal
+    return total = +total.toFixed(2);
+  }
+  //con el problema de sumar o restar en el menu hacemos el siguente method
+  totalPrice(quantityProduct: QuantityProduct){
+    const total = this.priceProduct(quantityProduct.product)*quantityProduct.quiantity
+
+    return +total.toFixed(2); //funcion para redondear
+  }
+  
+
+  //method for add all the products and take the price
+  totalOrder(){
+    let total = 0;
+    for(const quantityProduct of this.order.products){
+      total += this.totalPrice(quantityProduct)
+    }
+    return total;
+  }
+
 
 }
